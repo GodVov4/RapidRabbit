@@ -7,12 +7,10 @@ from time import sleep
 from producer import Contact, connect
 
 
-def send_email(message: dict) -> str:
+def send_email(message: dict) -> None:
     sleep(1)
     contact = Contact.objects(id=message.get('ID'))
     contact.update(ack=True)
-    return ' [x] Sent email'
-
 
 
 def main():
