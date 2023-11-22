@@ -68,8 +68,9 @@ def main():
     password = config.get('DB', 'pass')
     db = config.get('DB', 'db_name')
     domain = config.get('DB', 'domain')
+    host = f'mongodb+srv://{user}:{password}@{domain}/{db}?retryWrites=true&w=majority'
 
-    connect('HW9', host=f'mongodb+srv://{user}:{password}@{domain}/{db}?retryWrites=true&w=majority', ssl=True)
+    connect('HW9', host=host, ssl=True)
 
     Contact.drop_collection()
     number_contacts = 3
