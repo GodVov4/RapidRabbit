@@ -10,7 +10,7 @@ from producer import Contact, connect
 def send_sms(message: dict) -> None:
     sleep(1)
     contact = Contact.objects(id=message.get('ID'))
-    contact.update(ack=True)
+    contact.update(set_ack=True)
 
 
 def main():
